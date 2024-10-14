@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDate;
 import java.util.Set;
@@ -22,6 +23,8 @@ public class User {
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
     @JsonIgnore
+    @CreationTimestamp
+    @Column(updatable = false)
     private LocalDate createDt;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
