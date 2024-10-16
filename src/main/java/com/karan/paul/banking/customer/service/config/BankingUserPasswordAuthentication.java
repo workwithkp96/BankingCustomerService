@@ -11,7 +11,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
-public class BankUserPasswordAuthentication implements AuthenticationProvider {
+public class BankingUserPasswordAuthentication implements AuthenticationProvider {
 
     @Autowired
     private BankingUserDetailsService bankingUserDetailsService;
