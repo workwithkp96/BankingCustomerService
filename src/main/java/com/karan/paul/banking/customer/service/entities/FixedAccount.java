@@ -13,7 +13,7 @@ public class FixedAccount {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    private Double principalAmount;
     private Double interestRate;
     private LocalDate startDate;
     private LocalDate maturityDate;

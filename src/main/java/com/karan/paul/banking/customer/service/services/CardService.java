@@ -17,9 +17,9 @@ public class CardService {
     @Autowired
     private CreditCardRepository creditCardRepository;
 
-    public List<DebitCard> getDebitCardsByAccountId(Long accountId) {
-        return debitCardRepository.findBySavingsCurrentAccountId(accountId);
-    }
+//    public List<DebitCard> getDebitCardsByAccountId(Long accountId) {
+//        return debitCardRepository.findBySavingsCurrentAccountId(accountId);
+//    }
 
     public List<CreditCard> getCreditCardsByCustomerId(Long customerId) {
         return creditCardRepository.findByCustomer_CustomerId(customerId);

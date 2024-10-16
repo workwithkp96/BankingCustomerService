@@ -33,4 +33,8 @@ public class Customer{
     @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
     @JsonIgnore
     private List<FixedAccount> fixedAccounts;
+
+    @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
+    @JsonIgnore
+    private List<CreditCard> creditCards;
 }

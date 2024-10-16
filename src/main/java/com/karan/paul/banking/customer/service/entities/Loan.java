@@ -15,8 +15,10 @@ public class Loan {
     private Long id;
     @Enumerated(EnumType.STRING)
     private LoanType type; // PERSONAL, HOME, CAR, BIKE
-    private double amount;
-    private double interestRate;
+    private Double amount;
+    private Float interestRate;
+    private Double monthlyInstallment;
+    private LocalDate nextMonthlyInstallmentDate;
     private LocalDate loanStartDate;
     private LocalDate loanEndDate;
 

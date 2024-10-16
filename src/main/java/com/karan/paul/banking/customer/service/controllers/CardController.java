@@ -18,11 +18,11 @@ public class CardController {
     @Autowired
     private CardService cardService;
 
-    @GetMapping("/debit/{accountId}")
-    public ResponseEntity<List<DebitCard>> getDebitCardsByAccountId(@PathVariable Long accountId) {
-        List<DebitCard> debitCards = cardService.getDebitCardsByAccountId(accountId);
-        return ResponseEntity.ok(debitCards);
-    }
+//    @GetMapping("/debit/{accountId}")
+//    public ResponseEntity<List<DebitCard>> getDebitCardsByAccountId(@PathVariable Long accountId) {
+//        List<DebitCard> debitCards = cardService.getDebitCardsByAccountId(accountId);
+//        return ResponseEntity.ok(debitCards);
+//    }
 
     @GetMapping("/credit/{customerId}")
     public ResponseEntity<List<CreditCard>> getCreditCardsByCustomerId(@PathVariable Long customerId) {

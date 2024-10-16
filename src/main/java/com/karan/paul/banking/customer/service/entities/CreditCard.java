@@ -15,8 +15,8 @@ public class CreditCard {
 
     private String cardNumber;
     private LocalDate validity;
-    private double limit;
-    private int rewardPoints;
+    private Double creditLimit;
+    private Integer rewardPoints;
 
     @ManyToOne
     @JoinColumn(name = "customer_id")

@@ -1,7 +1,10 @@
 package com.karan.paul.banking.customer.service.entities;
 
+import com.karan.paul.banking.customer.service.enums.AccountType;
 import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.List;
 
 
 @Entity
@@ -13,8 +16,13 @@ public class SavingsCurrentAccount  {
     private Long id;
 
     private double balance;
+    @Enumerated(EnumType.STRING)
+    private AccountType accountType;
 
     @ManyToOne
     @JoinColumn(name = "customer_id")
     private Customer customer;
+
+    @ManyToMany(mappedBy = "savingsCurrentAccounts")
+    private List<DebitCard> debitCards;
 }

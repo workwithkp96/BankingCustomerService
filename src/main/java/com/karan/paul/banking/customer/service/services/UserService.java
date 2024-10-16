@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class UserService {
     @Autowired
@@ -39,5 +41,24 @@ public class UserService {
         authorityRepository.save(authority);
 
         return savedUser;
+    }
+
+    public User registerAdmin(Long userId) {
+
+        Optional<User> user = userRepository.findById(userId);
+
+        if(user.isEmpty())
+            throw new RuntimeException("User is not registered");
+
+        User registeredUser = user.get();
+
+        // Create Authority for the user with admin role "ADMIN"
+        Authority authority = new Authority();
+        authority.setName("ROLE_ADMIN");
+        authority.setUser(registeredUser);
+
+        authorityRepository.save(authority);
+
+        return registeredUser;
     }
 }
