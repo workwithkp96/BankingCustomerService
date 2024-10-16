@@ -1,0 +1,99 @@
+REGISTER USERS THROUGH API
+('John Doe', 'john@example.com', 'your_password1', '2023-10-01'),CUSTOMER
+('Jane Smith', 'jane@example.com', 'your_password2', '2023-10-01'),CUSTOMER
+('Robert Brown', 'robert@example.com', 'your_password3', '2023-10-01'),USER
+('Alice Johnson', 'alice@example.com', 'your_password4', '2023-10-01'), CUSTOMER
+('Michael Green', 'michael.green@example.com', 'your_password5', '2023-10-01'); ADMIN
+
+
+INSERT INTO banking_customer_service.savings_current_accounts (balance, customer_id, account_type) 
+VALUES 
+(100000.00, 1, 'SAVINGS'), 
+(50000.00, 1, 'CURRENT'),
+(150000.00, 2, 'SAVINGS'), 
+(80000.00, 4, 'SAVINGS'), 
+(2200.00, 4, 'CURRENT');
+
+INSERT INTO banking_customer_service.fixed_accounts (interest_rate, start_date, maturity_date, final_amount, customer_id, principal_amount) 
+VALUES 
+(5.0, '2023-01-01', '2026-01-01', 173643.75, 1, 150000.00), 
+(5.5, '2023-02-01', '2026-02-01', 231525.00, 2, 200000.00), 
+(6.0, '2023-03-01', '2028-03-01', 357305.65, 1, 300000.00), 
+(5.7, '2023-04-01', '2028-04-01', 646677.89, 4, 500000.00), 
+(6.2, '2023-05-01', '2028-05-01', 675890.90, 4, 569087.00);
+
+
+INSERT INTO banking_customer_service.recurring_accounts (monthly_Investment, interest_Rate, next_Cycle_Date, last_Investment_Date, maturity_Date, matured_Amount, customer_id) 
+VALUES 
+(10000.00, 5.0, '2023-11-01', '2023-10-01', '2024-10-01', 120000.00, 1), 
+(20000.00, 5.2, '2023-11-15', '2023-10-15', '2024-10-15', 240000.00, 1), 
+(1500.00, 5.1, '2023-11-05', '2023-10-05', '2024-10-05', 18000.00, 2),
+(1800.00, 5.3, '2023-11-10', '2023-10-10', '2024-10-10', 21600.00, 2), 
+(13000.00, 5.4, '2023-11-12', '2023-10-12', '2024-10-12', 156000.00, 4);
+
+
+INSERT INTO banking_customer_service.credit_cards (card_Number, validity, credit_limit, reward_Points, customer_id) 
+VALUES 
+('1111-2222-3333-4444', '2025-12-31', 500000.00, 200, 1), 
+('2222-3333-4444-5555', '2026-01-31', 100000.00, 300, 2), 
+('3333-4444-5555-6666', '2025-11-30', 100000.00, 150, 2),
+('4444-5555-6666-7777', '2026-03-31', 150000.00, 500, 4), 
+('5555-6666-7777-8888', '2026-05-31', 20000.00, 400, 1);
+
+
+INSERT INTO banking_customer_service.debit_cards (card_Number, validity, debit_limit) 
+VALUES 
+('9999-8888-7777-6666', '2026-12-31', 3000.00),
+('8888-7777-6666-5555', '2026-11-30', 5000.00), 
+('7777-6666-5555-4444', '2026-10-31', 2000.00), 
+('6666-5555-4444-3333', '2026-09-30', 10000.00), 
+('5555-4444-3333-2222', '2026-08-31', 4000.00);
+
+
+INSERT INTO banking_customer_service.debit_card_account_link (debit_card_id, account_id) 
+VALUES
+(1,1),
+(1,2),
+(2,3),
+(3,3),
+(4,4),
+(5,5);
+
+
+INSERT INTO banking_customer_service.loans 
+(type, amount, interest_rate, loan_start_date, loan_end_date, customer_id, monthly_installment, next_monthly_installment_date) 
+VALUES 
+('PERSONAL', 5000.00, 5.0, '2023-01-15', '2026-01-15', 1, 150.00, '2024-11-01'),
+('HOME', 150000.00, 3.5, '2022-06-01', '2042-06-01', 2, 1000.00, '2024-11-01'),
+('CAR', 25000.00, 7.2, '2023-03-10', '2028-03-10', 2, 450.00, '2024-11-01'),
+('BIKE', 8000.00, 6.8, '2023-07-01', '2026-07-01', 4, 250.00, '2024-11-01'),
+('PERSONAL', 10000.00, 4.9, '2023-02-01', '2027-02-01', 1, 275.00, '2024-11-01');
+
+
+INSERT INTO banking_customer_service.transactions (description, amount, type, timestamp, account_id) 
+VALUES 
+('Grocery Purchase', 50.00, 'DEBIT', '2024-10-01 12:30:00', 1), 
+('Salary Credit', 1000.00, 'CREDIT', '2024-10-02 08:00:00', 1), 
+('Utility Bill Payment', 100.00, 'DEBIT', '2024-10-03 09:00:00', 2), 
+('Shopping Mall Purchase', 200.00, 'DEBIT', '2024-10-05 16:00:00', 3), 
+('Refund', 50.00, 'CREDIT', '2024-10-06 10:00:00', 4),
+('Restaurant Bill', 75.00, 'DEBIT', '2024-10-07 19:30:00', 1), 
+('Salary Credit', 1200.00, 'CREDIT', '2024-10-08 08:00:00', 2), 
+('Electricity Bill Payment', 150.00, 'DEBIT', '2024-10-08 09:15:00', 3), 
+('Online Shopping', 500.00, 'DEBIT', '2024-10-09 14:45:00', 4), 
+('Refund from Vendor', 80.00, 'CREDIT', '2024-10-10 11:00:00', 5),
+('Movie Ticket Purchase', 20.00, 'DEBIT', '2024-10-11 18:00:00', 2), 
+('Fuel Purchase', 60.00, 'DEBIT', '2024-10-12 09:30:00', 1), 
+('Salary Credit', 2000.00, 'CREDIT', '2024-10-13 08:15:00', 3), 
+('House Rent', 900.00, 'DEBIT', '2024-10-14 10:00:00', 4), 
+('Grocery Purchase', 75.00, 'DEBIT', '2024-10-15 12:45:00', 5),
+('Refund for Movie Ticket', 20.00, 'CREDIT', '2024-10-16 11:00:00', 2), 
+('Dining Out', 150.00, 'DEBIT', '2024-10-17 19:45:00', 1), 
+('Salary Bonus', 500.00, 'CREDIT', '2024-10-18 08:00:00', 3), 
+('Car EMI', 300.00, 'DEBIT', '2024-10-19 10:00:00', 5), 
+('Subscription Payment', 15.00, 'DEBIT', '2024-10-20 08:00:00', 4),
+('Gym Membership Fee', 120.00, 'DEBIT', '2024-10-21 10:30:00', 1), 
+('Cash Deposit', 250.00, 'CREDIT', '2024-10-22 12:00:00', 2), 
+('Gift Purchase', 90.00, 'DEBIT', '2024-10-23 15:30:00', 3), 
+('Refund for Subscription', 15.00, 'CREDIT', '2024-10-24 10:00:00', 4), 
+('Online Course Payment', 200.00, 'DEBIT', '2024-10-25 14:00:00', 5);
