@@ -1,5 +1,6 @@
 package com.karan.paul.banking.customer.service.config;
 
+import com.karan.paul.banking.customer.service.filters.JWTTokenValidatorFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -11,6 +12,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
 @Configuration
 public class WebConfigurations {
@@ -21,6 +23,7 @@ public class WebConfigurations {
             requests.requestMatchers("/api/v1/auth/login").permitAll();
             requests.requestMatchers("/api/v1/auth/register/**").hasRole("ADMIN");
         });
+        httpSecurity.addFilterBefore(new JWTTokenValidatorFilter(), BasicAuthenticationFilter.class);
         httpSecurity.formLogin(Customizer.withDefaults());
         httpSecurity.httpBasic(Customizer.withDefaults());
         httpSecurity.cors(AbstractHttpConfigurer::disable).csrf(AbstractHttpConfigurer::disable);
