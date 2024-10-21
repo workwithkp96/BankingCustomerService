@@ -6,10 +6,13 @@ import com.karan.paul.banking.customer.service.repositories.AuthorityRepository;
 import com.karan.paul.banking.customer.service.repositories.UserRepository;
 import com.karan.paul.banking.customer.service.requestDTOs.UserRegistrationDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class UserService {
@@ -60,5 +63,17 @@ public class UserService {
         authorityRepository.save(authority);
 
         return registeredUser;
+    }
+
+    public User findUserByEmail(String email){
+
+        //FETCH the user through email
+        User user = userRepository.findByEmail(email).orElseThrow(()
+                -> new UsernameNotFoundException("User not found with username " + email));
+
+        //FETCH the set of authorities associated with the user lazily
+        user.setAuthoritySet(new HashSet<>(authorityRepository.findByUserId(user.getId())));
+
+        return user;
     }
 }

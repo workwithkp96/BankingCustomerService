@@ -3,6 +3,7 @@ package com.karan.paul.banking.customer.service.config;
 import com.karan.paul.banking.customer.service.constants.ApplicationConstants;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.security.core.Authentication;
@@ -12,10 +13,12 @@ import org.springframework.stereotype.Component;
 
 import javax.crypto.SecretKey;
 import java.nio.charset.StandardCharsets;
+import java.util.Base64;
 import java.util.Date;
 import java.util.stream.Collectors;
 
 @Component
+@Slf4j
 public class JWTTokenGenerator {
     @Autowired
     private Environment environment;

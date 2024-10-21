@@ -3,6 +3,7 @@ package com.karan.paul.banking.customer.service.entities;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.util.List;
 
@@ -17,6 +18,7 @@ public class Customer{
     @OneToOne
     @MapsId
     @JoinColumn(name = "customer_id")
+    @EqualsAndHashCode.Exclude
     private User user;
 
     private String name;

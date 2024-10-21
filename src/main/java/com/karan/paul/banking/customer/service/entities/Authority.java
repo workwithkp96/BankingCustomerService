@@ -1,7 +1,9 @@
 package com.karan.paul.banking.customer.service.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Entity
 @Data
@@ -16,6 +18,8 @@ public class Authority {
 
     @ManyToOne
     @JoinColumn(name="user_id")
+    @JsonBackReference
+    @EqualsAndHashCode.Exclude
     private User user;
 
 }
