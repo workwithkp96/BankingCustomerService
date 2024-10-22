@@ -24,6 +24,6 @@ public class BankingUserDetailsService implements UserDetailsService {
         User user = userService.findUserByEmail(username);
         List<SimpleGrantedAuthority> authorityList = user.getAuthoritySet().stream().map(authority ->
                 new SimpleGrantedAuthority(authority.getName())).toList();
-        return new org.springframework.security.core.userdetails.User(user.getEmail(),user.getPassword(),authorityList);
+        return new BankingUserDetails(user.getId(),user.getEmail(),user.getPassword(),authorityList);
     }
 }

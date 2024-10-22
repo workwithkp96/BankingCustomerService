@@ -28,7 +28,7 @@ public class BankingUserPasswordAuthentication implements AuthenticationProvider
         UserDetails userDetails = bankingUserDetailsService.loadUserByUsername(userName);
         if(!passwordEncoder.matches(pwd,userDetails.getPassword()))
             throw new BadCredentialsException("Invalid Credential");
-        Authentication authentication1 = new UsernamePasswordAuthenticationToken(userName,pwd,userDetails.getAuthorities());
+        Authentication authentication1 = new UsernamePasswordAuthenticationToken(userDetails,pwd,userDetails.getAuthorities());
         SecurityContextHolder.getContext().setAuthentication(authentication1);
         return authentication1;
     }

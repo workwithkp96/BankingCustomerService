@@ -1,5 +1,6 @@
 package com.karan.paul.banking.customer.service.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.karan.paul.banking.customer.service.enums.AccountType;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -21,8 +22,10 @@ public class SavingsCurrentAccount  {
 
     @ManyToOne
     @JoinColumn(name = "customer_id")
+    @JsonIgnore
     private Customer customer;
 
     @ManyToMany(mappedBy = "savingsCurrentAccounts")
+    @JsonIgnore
     private List<DebitCard> debitCards;
 }

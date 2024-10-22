@@ -1,5 +1,6 @@
 package com.karan.paul.banking.customer.service.filters;
 
+import com.karan.paul.banking.customer.service.config.BankingUserDetails;
 import com.karan.paul.banking.customer.service.constants.ApplicationConstants;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -8,7 +9,6 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -34,7 +34,8 @@ public class JWTTokenValidatorFilter extends OncePerRequestFilter {
                     .build().parseSignedClaims(JWTToken).getPayload();
             String username = String.valueOf(claims.get("username"));
             String authorities = String.valueOf(claims.get("roles"));
-            Authentication authentication = new UsernamePasswordAuthenticationToken(username, null,
+            Long userId = Long.valueOf(String.valueOf(claims.get("userId")));
+            Authentication authentication = new UsernamePasswordAuthenticationToken(new BankingUserDetails(userId,username,null,null), null,
                     AuthorityUtils.commaSeparatedStringToAuthorityList(authorities));
             SecurityContextHolder.getContext().setAuthentication(authentication);
         }catch (Exception e){
