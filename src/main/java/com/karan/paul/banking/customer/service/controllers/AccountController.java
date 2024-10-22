@@ -1,7 +1,8 @@
 package com.karan.paul.banking.customer.service.controllers;
 
+import com.karan.paul.banking.customer.service.entities.FixedAccount;
 import com.karan.paul.banking.customer.service.entities.SavingsCurrentAccount;
-import com.karan.paul.banking.customer.service.services.SavingsCurrentAccountService;
+import com.karan.paul.banking.customer.service.services.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -16,12 +17,19 @@ import java.util.List;
 @RequestMapping("/api/accounts")
 public class AccountController {
     @Autowired
-    private SavingsCurrentAccountService savingsCurrentAccountService;
+    private AccountService accountService;
 
     @GetMapping("/{customerId}")
     @PreAuthorize("#customerId == authentication.principal.id")
     public ResponseEntity<List<SavingsCurrentAccount>> getSavingsAndCurrentAccountsByCustomerId(@PathVariable Long customerId) {
-        List<SavingsCurrentAccount> accounts = savingsCurrentAccountService.getAccountsByCustomerId(customerId);
+        List<SavingsCurrentAccount> accounts = accountService.getAccountsByCustomerId(customerId);
+        return ResponseEntity.ok(accounts);
+    }
+
+    @GetMapping("/fixed/{customerId}")
+    @PreAuthorize("#customerId == authentication.principal.id")
+    public ResponseEntity<List<FixedAccount>> getFixedAccountsByCustomerId(@PathVariable Long customerId){
+        List<FixedAccount> accounts = accountService.getFixedAccountsByCustomerId(customerId);
         return ResponseEntity.ok(accounts);
     }
 }
