@@ -1,6 +1,7 @@
 package com.karan.paul.banking.customer.service.controllers;
 
 import com.karan.paul.banking.customer.service.entities.FixedAccount;
+import com.karan.paul.banking.customer.service.entities.RecurringAccount;
 import com.karan.paul.banking.customer.service.entities.SavingsCurrentAccount;
 import com.karan.paul.banking.customer.service.services.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,13 @@ public class AccountController {
     @PreAuthorize("#customerId == authentication.principal.id")
     public ResponseEntity<List<FixedAccount>> getFixedAccountsByCustomerId(@PathVariable Long customerId){
         List<FixedAccount> accounts = accountService.getFixedAccountsByCustomerId(customerId);
+        return ResponseEntity.ok(accounts);
+    }
+
+    @GetMapping("/recurring/{customerId}")
+    @PreAuthorize("#customerId == authentication.principal.id")
+    public ResponseEntity<List<RecurringAccount>> getRecurringAccountsByCustomerId(@PathVariable Long customerId){
+        List<RecurringAccount> accounts = accountService.getRecurringAccountsByCustomerId(customerId);
         return ResponseEntity.ok(accounts);
     }
 }
