@@ -1,5 +1,6 @@
 package com.karan.paul.banking.customer.service.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.karan.paul.banking.customer.service.enums.TransactionType;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -22,5 +23,6 @@ public class Transaction {
 
     @ManyToOne
     @JoinColumn(name = "account_id")
+    @JsonIgnore
     private SavingsCurrentAccount savingsCurrentAccount;
 }

@@ -21,21 +21,19 @@ public class AccountController {
     private AccountService accountService;
 
     @GetMapping("/{customerId}")
-    @PreAuthorize("#customerId == authentication.principal.id")
     public ResponseEntity<List<SavingsCurrentAccount>> getSavingsAndCurrentAccountsByCustomerId(@PathVariable Long customerId) {
         List<SavingsCurrentAccount> accounts = accountService.getAccountsByCustomerId(customerId);
         return ResponseEntity.ok(accounts);
     }
 
     @GetMapping("/fixed/{customerId}")
-    @PreAuthorize("#customerId == authentication.principal.id")
     public ResponseEntity<List<FixedAccount>> getFixedAccountsByCustomerId(@PathVariable Long customerId){
         List<FixedAccount> accounts = accountService.getFixedAccountsByCustomerId(customerId);
         return ResponseEntity.ok(accounts);
     }
 
     @GetMapping("/recurring/{customerId}")
-    @PreAuthorize("#customerId == authentication.principal.id")
+//    @PreAuthorize("#customerId == authentication.principal.id")
     public ResponseEntity<List<RecurringAccount>> getRecurringAccountsByCustomerId(@PathVariable Long customerId){
         List<RecurringAccount> accounts = accountService.getRecurringAccountsByCustomerId(customerId);
         return ResponseEntity.ok(accounts);

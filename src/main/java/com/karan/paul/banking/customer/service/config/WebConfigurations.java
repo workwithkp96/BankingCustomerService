@@ -22,7 +22,8 @@ public class WebConfigurations {
         httpSecurity.authorizeHttpRequests((requests) -> {
             requests.requestMatchers("/api/v1/auth/login").permitAll();
             requests.requestMatchers("/api/v1/auth/register/**").hasRole("ADMIN");
-            requests.requestMatchers("/api/accounts/**").hasRole("CUSTOMER");
+            requests.requestMatchers("/api/accounts/**","/api/transactions/**").hasRole("CUSTOMER");
+            requests.requestMatchers("/api/loans/**","/api/cards/**").hasAnyRole("CUSTOMER","ADMIN");
         });
         httpSecurity.addFilterBefore(new JWTTokenValidatorFilter(), BasicAuthenticationFilter.class);
         httpSecurity.formLogin(Customizer.withDefaults());

@@ -1,0 +1,238 @@
+{
+	"info": {
+		"_postman_id": "870dce09-6120-42c5-8a7f-e732a5a602b3",
+		"name": "Banking Customer Services",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "39056395"
+	},
+	"item": [
+		{
+			"name": "Register New User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJDdXN0b21lciBCYW5raW5nIFNlcnZpY2UiLCJpYXQiOjE3Mjk1MTgxOTYsInN1YiI6IkN1c3RvbWVyIFNlcnZpY2UgVG9rZW4iLCJ1c2VybmFtZSI6Im1pY2hhZWwuZ3JlZW5AZXhhbXBsZS5jb20iLCJyb2xlcyI6IlJPTEVfQURNSU4sUk9MRV9VU0VSIiwiZXhwIjoxNzI5NTQ4MTk2fQ.Yr_-NT1Zkmx7UdjP3Dr32PAeN8PwTOtPCrfIZw_95QU",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Karan Paul\",\r\n  \"email\": \"paul.karan@example.com\",\r\n  \"password\": \"your_password6\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/v1/auth/register/user"
+			},
+			"response": []
+		},
+		{
+			"name": "Register New Customer",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJDdXN0b21lciBCYW5raW5nIFNlcnZpY2UiLCJpYXQiOjE3Mjk2MTU4OTIsInN1YiI6IkN1c3RvbWVyIFNlcnZpY2UgVG9rZW4iLCJ1c2VybmFtZSI6Im1pY2hhZWwuZ3JlZW5AZXhhbXBsZS5jb20iLCJ1c2VySWQiOjUsInJvbGVzIjoiUk9MRV9VU0VSLFJPTEVfQURNSU4iLCJleHAiOjE3Mjk2NDU4OTJ9.sYHpgkjaoA_Uh58vU1pIc4RxYvAiyXa6EeKYUHqordc",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/auth/register/customer?userId=6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"register",
+						"customer"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "6"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register New Admin",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJDdXN0b21lciBCYW5raW5nIFNlcnZpY2UiLCJpYXQiOjE3Mjk1MTgxOTYsInN1YiI6IkN1c3RvbWVyIFNlcnZpY2UgVG9rZW4iLCJ1c2VybmFtZSI6Im1pY2hhZWwuZ3JlZW5AZXhhbXBsZS5jb20iLCJyb2xlcyI6IlJPTEVfQURNSU4sUk9MRV9VU0VSIiwiZXhwIjoxNzI5NTQ4MTk2fQ.Yr_-NT1Zkmx7UdjP3Dr32PAeN8PwTOtPCrfIZw_95QU",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/auth/register/admin?userId=6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"register",
+						"admin"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "6"
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"john.doe@example.com\",\r\n    \"password\": \"your_password1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/v1/auth/login"
+			},
+			"response": []
+		},
+		{
+			"name": "SavingsAndCurrentAccount",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJDdXN0b21lciBCYW5raW5nIFNlcnZpY2UiLCJpYXQiOjE3MzAyMjczNTEsInN1YiI6IkN1c3RvbWVyIFNlcnZpY2UgVG9rZW4iLCJ1c2VybmFtZSI6ImpvaG4uZG9lQGV4YW1wbGUuY29tIiwidXNlcklkIjoxLCJyb2xlcyI6IlJPTEVfQ1VTVE9NRVIsUk9MRV9VU0VSIiwiZXhwIjoxNzMwMjU3MzUxfQ.Y2_48bCatPAEZdIxzyttHYM-XCwP6fBt4IgYVM4NgmU",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:8080/api/accounts/1"
+			},
+			"response": []
+		},
+		{
+			"name": "FixedAccount",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJDdXN0b21lciBCYW5raW5nIFNlcnZpY2UiLCJpYXQiOjE3Mjk3NzUzNjQsInN1YiI6IkN1c3RvbWVyIFNlcnZpY2UgVG9rZW4iLCJ1c2VybmFtZSI6ImpvaG4uZG9lQGV4YW1wbGUuY29tIiwidXNlcklkIjoxLCJyb2xlcyI6IlJPTEVfQ1VTVE9NRVIsUk9MRV9VU0VSIiwiZXhwIjoxNzI5ODA1MzY0fQ.qbOlIiPJ2-IjgXmMmf1Lrfz4rp1IAQsds7zUzZqVDOI",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:8080/api/accounts/fixed/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Recurring Account",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJDdXN0b21lciBCYW5raW5nIFNlcnZpY2UiLCJpYXQiOjE3MzAyMjczNTEsInN1YiI6IkN1c3RvbWVyIFNlcnZpY2UgVG9rZW4iLCJ1c2VybmFtZSI6ImpvaG4uZG9lQGV4YW1wbGUuY29tIiwidXNlcklkIjoxLCJyb2xlcyI6IlJPTEVfQ1VTVE9NRVIsUk9MRV9VU0VSIiwiZXhwIjoxNzMwMjU3MzUxfQ.Y2_48bCatPAEZdIxzyttHYM-XCwP6fBt4IgYVM4NgmU",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:8080/api/accounts/recurring/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Loans by customer id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJDdXN0b21lciBCYW5raW5nIFNlcnZpY2UiLCJpYXQiOjE3MzAyMjczNTEsInN1YiI6IkN1c3RvbWVyIFNlcnZpY2UgVG9rZW4iLCJ1c2VybmFtZSI6ImpvaG4uZG9lQGV4YW1wbGUuY29tIiwidXNlcklkIjoxLCJyb2xlcyI6IlJPTEVfQ1VTVE9NRVIsUk9MRV9VU0VSIiwiZXhwIjoxNzMwMjU3MzUxfQ.Y2_48bCatPAEZdIxzyttHYM-XCwP6fBt4IgYVM4NgmU",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:8080/api/loans/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Credit Card by customer id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJDdXN0b21lciBCYW5raW5nIFNlcnZpY2UiLCJpYXQiOjE3MzAyMjUwMzUsInN1YiI6IkN1c3RvbWVyIFNlcnZpY2UgVG9rZW4iLCJ1c2VybmFtZSI6ImpvaG4uZG9lQGV4YW1wbGUuY29tIiwidXNlcklkIjoxLCJyb2xlcyI6IlJPTEVfQ1VTVE9NRVIsUk9MRV9VU0VSIiwiZXhwIjoxNzMwMjU1MDM1fQ.WcKpZxxBbdHiwwTXYw2xjQh3YkO1XUFNw3ymyuVCi_A",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:8080/api/cards/credit/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Debit Cards by CustomerId",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJDdXN0b21lciBCYW5raW5nIFNlcnZpY2UiLCJpYXQiOjE3MzAyMjczNTEsInN1YiI6IkN1c3RvbWVyIFNlcnZpY2UgVG9rZW4iLCJ1c2VybmFtZSI6ImpvaG4uZG9lQGV4YW1wbGUuY29tIiwidXNlcklkIjoxLCJyb2xlcyI6IlJPTEVfQ1VTVE9NRVIsUk9MRV9VU0VSIiwiZXhwIjoxNzMwMjU3MzUxfQ.Y2_48bCatPAEZdIxzyttHYM-XCwP6fBt4IgYVM4NgmU",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:8080/api/cards/credit/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Transaction By AccountId",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJDdXN0b21lciBCYW5raW5nIFNlcnZpY2UiLCJpYXQiOjE3MzAyMjcxMTQsInN1YiI6IkN1c3RvbWVyIFNlcnZpY2UgVG9rZW4iLCJ1c2VybmFtZSI6ImpvaG4uZG9lQGV4YW1wbGUuY29tIiwidXNlcklkIjoxLCJyb2xlcyI6IlJPTEVfQ1VTVE9NRVIsUk9MRV9VU0VSIiwiZXhwIjoxNzMwMjU3MTE0fQ.8XXoRHnWIelwQNFjPmA2HwiiYOkC2kMAq1Ja_k98pa0",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:8080/api/transactions/1"
+			},
+			"response": []
+		}
+	]
+}

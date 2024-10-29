@@ -1,10 +1,10 @@
 REGISTER USERS THROUGH API
-('John Doe', 'john@example.com', 'your_password1', '2023-10-01'),CUSTOMER
+('John Doe', 'john.doe@example.com', 'your_password1', '2023-10-01'),CUSTOMER
 ('Jane Smith', 'jane@example.com', 'your_password2', '2023-10-01'),CUSTOMER
 ('Robert Brown', 'robert@example.com', 'your_password3', '2023-10-01'),USER
 ('Alice Johnson', 'alice@example.com', 'your_password4', '2023-10-01'), CUSTOMER
 ('Michael Green', 'michael.green@example.com', 'your_password5', '2023-10-01'); ADMIN
-('Karan Paul', 'paul.karan@example.com', 'your_password6', '2023-10-01'); ADMIN
+('Karan Paul', 'paul.karan@example.com', 'your_password6', '2023-10-01'); ADMIN,CUSTOMER
 
 
 INSERT INTO banking_customer_service.savings_current_accounts (balance, customer_id, account_type) 

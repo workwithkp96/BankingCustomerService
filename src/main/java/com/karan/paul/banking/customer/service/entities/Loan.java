@@ -1,5 +1,6 @@
 package com.karan.paul.banking.customer.service.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.karan.paul.banking.customer.service.enums.LoanType;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -24,5 +25,6 @@ public class Loan {
 
     @ManyToOne
     @JoinColumn(name = "customer_id")
+    @JsonIgnore
     private Customer customer;
 }
